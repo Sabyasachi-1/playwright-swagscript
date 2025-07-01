@@ -31,6 +31,7 @@ with sync_playwright() as p:
     page.locator('[data-test="finish"]').click()
     expect(page.locator('[data-test="complete-header"]')).to_have_text("Thank you for your order!")
 
+#CI TRIGGER
 
 
 

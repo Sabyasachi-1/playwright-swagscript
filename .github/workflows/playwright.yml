@@ -1,0 +1,29 @@
+name: Run Playwright Tests
+on: [push, pull_request]
+
+  jobs:
+    test:
+      run-on: ubuntu-latest
+
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+
+        - name: Set up Python
+          uses: actions/setup-Python@v5
+          with:
+            python-version '3.11'
+
+        - name: Install dependencies
+          run: |
+            pip install -r requirements.txt
+            python -m playwright install --with--deps
+
+        - name: Recreate .env file from Github Secrets
+          run:
+            echo "SWAG_USERNAME=$SWAG_USERNAME" >> .env
+            echo "SWAG_PASSWORD=$SWAG_PASSWORD" >> .env
+
+        - name: Run Playwright script
+          run: python Playwright/Test01.py
+
