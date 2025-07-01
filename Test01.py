@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright, expect
 run_headless = os.getenv("CI", "false").lower()=="true"
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False)
+    browser = p.chromium.launch(headless=run_headless)
     context = browser.new_context(viewport=None)
     page = context.new_page()
 
