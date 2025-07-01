@@ -27,5 +27,5 @@ jobs:
             echo "SWAG_PASSWORD=$SWAG_PASSWORD" >> .env
 
         - name: Run Playwright script
-          run: python Playwright/Test01.py
+          run: python Test01.py
 
