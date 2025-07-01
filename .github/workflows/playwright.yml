@@ -1,8 +1,9 @@
 name: Run Playwright Tests
-on: push:
-    pull_request:
+on:
+  push:
+  pull_request:
 
-  jobs:
+jobs:
     test:
       runs-on: ubuntu-latest
 
