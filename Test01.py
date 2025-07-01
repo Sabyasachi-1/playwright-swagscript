@@ -5,6 +5,7 @@ USERNAME = os.getenv("SWAG_USERNAME")
 PASSWORD = os.getenv("SWAG_PASSWORD")
 
 from playwright.sync_api import sync_playwright, expect
+run_headless = os.getenv("CI", "false").lower()=="true"
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=False)
