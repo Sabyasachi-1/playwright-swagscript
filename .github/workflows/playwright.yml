@@ -1,6 +1,6 @@
 name: Run Playwright Tests
 on: push:
-      pull_request:
+    pull_request:
 
   jobs:
     test:
@@ -18,7 +18,7 @@ on: push:
         - name: Install dependencies
           run: |
             pip install -r requirements.txt
-            python -m playwright install --with--deps
+            python -m playwright install --with-deps
 
         - name: Recreate .env file from Github Secrets
           run:
