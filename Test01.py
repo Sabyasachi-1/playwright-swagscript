@@ -1,7 +1,7 @@
 import os
 from playwright.sync_api import sync_playwright, expect
 
-if not os.getenv("CI")
+if not os.getenv("CI"):
     from dotenv import load_dotenv
 
     load_dotenv()
