@@ -23,8 +23,8 @@ jobs:
 
         - name: Recreate .env file from Github Secrets
           run:
-            echo "SWAG_USERNAME=${{secret.SWAG_USERNAME}}" >> .env
-            echo "SWAG_PASSWORD=${{secret.SWAG_PASSWORD}}" >> .env
+            echo "SWAG_USERNAME=${{secrets.SWAG_USERNAME}}" >> .env
+            echo "SWAG_PASSWORD=${{secrets.SWAG_PASSWORD}}" >> .env
 
         - name: Set Pythonpath to repo root
           run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
