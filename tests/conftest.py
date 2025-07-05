@@ -3,11 +3,12 @@ import os
 
 import pytest
 from playwright.sync_api import sync_playwright, Page
-from dotenv import load_dotenv
+
 #from Playwright.Test01 import browser
 
 #Load environment variables from .env file ONLY if not in CI
 if not os.getenv("CI"):
+    from dotenv import load_dotenv
     load_dotenv()
 
 # Fixtures for Credentials
