@@ -29,5 +29,5 @@ jobs:
         - name: Run Playwright script
           env:
             CI: true # this sets environment variable
-          run: python Test01.py
+          run: python test_saucedemo_purchase.py
 
