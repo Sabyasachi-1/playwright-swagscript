@@ -28,6 +28,6 @@ def test_saucedemo_successfull_purchase(page: Page, username, password):
         checkout_page.verify_checkout_complete()
 
 
-
+# CI TRIGGER 01
 
 
