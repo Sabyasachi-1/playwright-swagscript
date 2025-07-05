@@ -26,8 +26,11 @@ jobs:
             echo "SWAG_USERNAME=$SWAG_USERNAME" >> .env
             echo "SWAG_PASSWORD=$SWAG_PASSWORD" >> .env
 
-        - name: Run Playwright script
+        - name: Set Pythonpath to repo root
+          run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
+
+        - name: Run pytest suite
           env:
             CI: true # this sets environment variable
-          run: python tests/test_saucedemo_purchase.py
+          run: pytest tests/test_saucedemo_purchase.py
 
