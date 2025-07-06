@@ -13,10 +13,11 @@ def test_saucedemo_successfull_purchase(page: Page, username, password):
         login_page.navigate()
         login_page.login(username, password)
         expect(page.get_by_text('Swag Labs')).to_be_visible()
-        expect(page.locator('[data-test="product-sort-container"]')).to_be_visible()
+
 
         #Add items to cart
-        page.wait_for_selector('[data-test="product-sort-container"]', timeout=20000)
+        page.locator('[data-test="product-sort-container"]', timeout=10000)
+        expect(page.locator('[data-test="product-sort-container"]')).to_be_visible()
         page.locator('[data-test="product-sort-container"]').select_option('lohi')
         page.locator('[data-test="add-to-cart-sauce-labs-onesie"]').click()
         page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click()
