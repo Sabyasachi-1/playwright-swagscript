@@ -13,7 +13,7 @@ def test_saucedemo_successfull_purchase(page: Page, username, password):
         login_page.navigate()
         login_page.login(username, password)
         expect(page.get_by_text('Swag Labs')).to_be_visible()
-
+        page.wait_for_load_state('networkidle')
 
         #Add items to cart
         dropdown=page.locator('[data-test="product-sort-container"]')
