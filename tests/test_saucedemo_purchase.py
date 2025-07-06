@@ -16,8 +16,8 @@ def test_saucedemo_successfull_purchase(page: Page, username, password):
 
 
         #Add items to cart
-        page.locator('[data-test="product-sort-container"]', timeout=10000)
-        expect(page.locator('[data-test="product-sort-container"]')).to_be_visible()
+        dropdown=page.locator('[data-test="product-sort-container"]')
+        expect(dropdown).to_be_visible()
         page.locator('[data-test="product-sort-container"]').select_option('lohi')
         page.locator('[data-test="add-to-cart-sauce-labs-onesie"]').click()
         page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click()
