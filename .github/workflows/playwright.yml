@@ -22,7 +22,7 @@ jobs:
             python -m playwright install --with-deps
 
         - name: Recreate .env file from Github Secrets
-          run:
+          run: |
             echo "SWAG_USERNAME=${{secrets.SWAG_USERNAME}}" >> .env
             echo "SWAG_PASSWORD=${{secrets.SWAG_PASSWORD}}" >> .env
 
