@@ -7,7 +7,17 @@ import os
 
 import pytest
 from playwright.sync_api import sync_playwright, Page
-
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    report = outcome.get_result()
+#Only take screenshot if test failed during execution
+    if report.when == 'call' and report.failed:
+        page = item.funcargs.get('page',None)
+        if page:
+            screenshot_path = f"screenshot_{item.name}.png"
+            page.screenshot(path=screenshot_path)
+            print(f"\n Screenshot captured: {screenshot_path}")
 #from Playwright.Test01 import browser
 
 

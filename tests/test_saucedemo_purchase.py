@@ -16,7 +16,6 @@ def test_saucedemo_successfull_purchase(page: Page, username, password):
         login_page.login(username, password)
         expect(page.get_by_text('Swag Labs')).to_be_visible()
         page.wait_for_load_state('networkidle')
-
         #Add items to cart
         product_page.sort_items_lowtohigh()
         page.locator('[data-test="add-to-cart-sauce-labs-onesie"]').click()
