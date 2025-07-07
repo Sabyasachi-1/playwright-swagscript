@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import os
-#from operator import truediv
+print("CI Debug: SWAG_USERNAME=", os.getenv("SWAG_USERNAME"))
+print("CI Debug: SWAG_PASSWORD=", os.getenv("SWAG_PASSWORD"))
 
 import pytest
 from playwright.sync_api import sync_playwright, Page
@@ -26,7 +27,7 @@ def pytest_runtest_makereport(item, call):
 @pytest.fixture(scope="session")
 def username() -> str:
     return os.getenv("SWAG_USERNAME")
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def password() -> str:
     return os.getenv("SWAG_PASSWORD")
 
