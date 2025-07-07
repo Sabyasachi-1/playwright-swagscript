@@ -4,11 +4,13 @@ import pytest
 #
 from pages.login_page import LoginPage
 from pages.checkout_page import CheckoutPage
+from pages.product_page import ProductPage
 
 #---Testcases---
 def test_saucedemo_successfull_purchase(page: Page, username, password):
         login_page = LoginPage(page)
         checkout_page = CheckoutPage(page)
+        product_page = ProductPage(page)
 #Login
         login_page.navigate()
         login_page.login(username, password)
@@ -16,9 +18,7 @@ def test_saucedemo_successfull_purchase(page: Page, username, password):
         page.wait_for_load_state('networkidle')
 
         #Add items to cart
-        dropdown=page.locator('[data-test="product-sort-container"]')
-        expect(dropdown).to_be_visible()
-        page.locator('[data-test="product-sort-container"]').select_option('lohi')
+        product_page.sort_items_lowtohigh()
         page.locator('[data-test="add-to-cart-sauce-labs-onesie"]').click()
         page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click()
         expect(page.locator('[data-test="shopping-cart-badge"]')).to_have_text("2")
