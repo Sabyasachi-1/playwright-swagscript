@@ -32,12 +32,12 @@ jobs:
         - name: Run pytest suite
           env:
             CI: true # this sets environment variable
-          run: pytest tests/test_saucedemo_purchase.py
+          run: pytest tests/ --alluredir=allure-results
 
-        - name: Upload screenshot artifacts
+        - name: Upload allure results
           if: always()
           uses: actions/upload-artifact@v4
           with:
-            name: screenshots
-            path: screenshot_*.png
+            name: result-report
+            path: result-report
 
