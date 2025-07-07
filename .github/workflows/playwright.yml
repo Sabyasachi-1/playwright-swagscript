@@ -35,7 +35,7 @@ jobs:
           run: pytest tests/test_saucedemo_purchase.py
 
         - name: Upload screenshot artifacts
-          uses: actions/upload-artifact@v3
+          uses: actions/upload-artifact@v4
           with:
             name: screenshots
             path: screenshot_*.png
